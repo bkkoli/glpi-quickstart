@@ -1,0 +1,34 @@
+services:
+  app:
+    container_name: "glpi"
+    image: "ghcr.io/glpi-project/glpi-nightly:main"
+    restart: "unless-stopped"
+    volumes:
+      - "glpi_app:/var/www/glpi:rw"
+    ports:
+      - "8080:80"
+    networks:
+      - glpi
+  database:
+    container_name: "db"
+    image: "mariadb:11.0"
+    restart: "unless-stopped"
+    environment:
+      MYSQL_ROOT_PASSWORD: "<YOUR_MYSQL_ROOT_PASSWORD>"
+      MYSQL_DATABASE: "glpi"
+      MYSQL_USER: "glpi"
+      MYSQL_PASSWORD: "<YOUR_MYSQL_PASSWORD>"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "glpi_db:/var/lib/mysql"
+    networks:
+      - glpi
+
+volumes:
+  glpi_app:
+  glpi_db:
+
+networks:
+  glpi:
+    driver: bridge
