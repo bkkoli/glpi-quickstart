@@ -24,6 +24,9 @@ docker compose up -d
 ```
 
 ### 3. Connect your glpi server
+
+Open your Browser, Input "127.0.0.1:8080"
+
 ![setup0](./reference_images/setup_0.png)
 
 ![setup1](./reference_images/setup_1.png)
