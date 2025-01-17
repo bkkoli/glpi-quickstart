@@ -56,3 +56,8 @@ Open your Browser, Input "127.0.0.1:8080"
 ![setup12](./reference_images/setup_12.png)
 
 ![setup13](./reference_images/setup_13.png)
+
+
+### 4. Reference
+- [GLPI](https://github.com/glpi-project/glpi)
+- [Glpi Docker images](https://github.com/glpi-project/docker-images)
