@@ -1,0 +1,16 @@
+{{- if .Values.persistentVolueClaim.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "glpi.fullname" . }}-config-pvc
+  labels:
+    {{- include "glpi.labels" . | nindent 4 }}
+spec:
+  resources:
+    requests:
+      storage: {{ .Values.persistentVolueClaim.storage }}
+  storageClassName: {{ .Values.persistentVolueClaim.storageClassName }}
+  volumeMode: {{ .Values.persistentVolueClaim.volumeMode }}
+  accessModes:
+    - {{ .Values.persistentVolueClaim.accessMode }}
+{{- end }}

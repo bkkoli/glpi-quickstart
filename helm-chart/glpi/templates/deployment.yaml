@@ -41,6 +41,11 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          {{- if .Values.persistentVolueClaim.enabled }}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /var/glpi/config
+          {{- end }}
           livenessProbe:
            httpGet:
              path: /
@@ -51,6 +56,12 @@ spec:
              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.persistentVolueClaim.enabled }}
+      volumes:
+      - name: config-volume
+        persistentVolumeClaim:
+          claimName: {{ include "glpi.fullname" . }}-config-pvc
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

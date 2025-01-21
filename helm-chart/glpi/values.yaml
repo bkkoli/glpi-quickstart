@@ -80,3 +80,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistentVolueClaim:
+  enabled: false
+  storageClassName: "test-storage-class"
+  storage: "1Gi"
+  volumeMode: Filesystem
+  accessMode: ReadWriteOnce
