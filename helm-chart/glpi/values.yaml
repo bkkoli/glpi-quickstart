@@ -80,15 +80,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-configmap:
-  configDB: ""
-  # configDB: |
-  #   <?php
-  #   class DB extends DBmysql {
-  #     var $dbhost = 'localhost';
-  #     var $dbuser = 'your_db_user';
-  #     var $dbpassword= 'your_db_password';
-  #     var $dbdefault = 'your_db_name';
-  #   }
-  #   ?>
