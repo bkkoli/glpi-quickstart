@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/glpi-project/glpi-nightly
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "main"
+  tag: "10.0-bugfixes"
 
 imagePullSecrets: []
 nameOverride: ""
