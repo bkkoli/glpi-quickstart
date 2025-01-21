@@ -1,7 +1,7 @@
 services:
   app:
     container_name: "glpi"
-    image: "ghcr.io/glpi-project/glpi-nightly:main"
+    image: "ghcr.io/glpi-project/glpi-nightly:10.0-bugfixes"
     restart: "unless-stopped"
     volumes:
       - "glpi_app:/var/www/glpi:rw"
