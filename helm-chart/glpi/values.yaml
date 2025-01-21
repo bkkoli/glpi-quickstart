@@ -87,3 +87,8 @@ persistentVolueClaim:
   storage: "1Gi"
   volumeMode: Filesystem
   accessMode: ReadWriteOnce
+
+# Whether to remove install.php
+# To set your database config initially, it must be false!!
+# After configuring your database, Set to true to allow the file to be deleted every time container is restarted.
+delete_install_php: false

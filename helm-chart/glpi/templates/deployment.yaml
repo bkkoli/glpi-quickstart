@@ -33,10 +33,12 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.delete_install_php }}
           lifecycle:
             postStart:
               exec:
                 command: ["/bin/sh", "-c", "rm -f /var/www/glpi/install/install.php"]
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
