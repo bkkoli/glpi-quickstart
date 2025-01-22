@@ -8,7 +8,22 @@ metadata:
 spec:
   resources:
     requests:
-      storage: {{ .Values.persistentVolueClaim.storage }}
+      storage: {{ .Values.persistentVolueClaim.configStorage }}
+  storageClassName: {{ .Values.persistentVolueClaim.storageClassName }}
+  volumeMode: {{ .Values.persistentVolueClaim.volumeMode }}
+  accessModes:
+    - {{ .Values.persistentVolueClaim.accessMode }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "glpi.fullname" . }}-marketplace-pvc
+  labels:
+    {{- include "glpi.labels" . | nindent 4 }}
+spec:
+  resources:
+    requests:
+      storage: {{ .Values.persistentVolueClaim.marketplaceStorage }}
   storageClassName: {{ .Values.persistentVolueClaim.storageClassName }}
   volumeMode: {{ .Values.persistentVolueClaim.volumeMode }}
   accessModes:

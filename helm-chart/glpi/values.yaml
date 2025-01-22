@@ -84,9 +84,10 @@ affinity: {}
 persistentVolueClaim:
   enabled: false
   storageClassName: "test-storage-class"
-  storage: "1Gi"
   volumeMode: Filesystem
   accessMode: ReadWriteOnce
+  configStorage: "1Gi"
+  marketplaceStorage: "2Gi"
 
 # Whether to remove install.php
 # To set your database config initially, it must be false!!

@@ -47,6 +47,8 @@ spec:
           volumeMounts:
           - name: config-volume
             mountPath: /var/glpi/config
+          - name: marketplace-volume
+            mountPath: /var/www/glpi/marketplace
           {{- end }}
           livenessProbe:
            httpGet:
@@ -63,6 +65,9 @@ spec:
       - name: config-volume
         persistentVolumeClaim:
           claimName: {{ include "glpi.fullname" . }}-config-pvc
+      - name: marketplace-volume
+        persistentVolumeClaim:
+          claimName: {{ include "glpi.fullname" . }}-marketplace-pvc
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

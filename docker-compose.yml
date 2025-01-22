@@ -5,6 +5,7 @@ services:
     restart: "unless-stopped"
     volumes:
       - "glpi_config:/var/glpi/config:rw"
+      - "glpi_marketplace:/var/www/glpi/marketplace:rw"
     ports:
       - "8080:80"
     networks:
