@@ -88,6 +88,7 @@ persistentVolueClaim:
   accessMode: ReadWriteOnce
   configStorage: "1Gi"
   marketplaceStorage: "2Gi"
+  fileStorage: "2Gi"
 
 # Whether to remove install.php
 # To set your database config initially, it must be false!!
