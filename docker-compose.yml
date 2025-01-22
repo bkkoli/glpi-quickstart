@@ -6,6 +6,7 @@ services:
     volumes:
       - "glpi_config:/var/glpi/config:rw"
       - "glpi_marketplace:/var/www/glpi/marketplace:rw"
+      - "glpi_file:/var/glpi/files:rw"
     ports:
       - "8080:80"
     networks:
